@@ -1,3 +1,12 @@
+# Fix SQLite version issue for ChromaDB on Streamlit Cloud
+try:
+    __import__('pysqlite3')
+    import sys
+    sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+except ImportError:
+    pass
+
+
 import streamlit as st
 import chromadb
 from transformers import pipeline
@@ -51,14 +60,6 @@ def convert_to_markdown(file_path: str) -> str:
 # Simple Q&A App using Streamlit
 # Students: Replace the documents below with your own!
 
-
-# Fix SQLite version issue for ChromaDB on Streamlit Cloud
-try:
-    __import__('pysqlite3')
-    import sys
-    sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
-except ImportError:
-    pass
 
 # IMPORTS - These are the libraries we need
 import streamlit as st          # Creates web interface components
