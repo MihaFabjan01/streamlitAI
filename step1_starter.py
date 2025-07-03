@@ -684,7 +684,7 @@ def create_tabbed_interface():
                             try:
                                 answer, source = get_answer_with_source(st.session_state.collection, question)
                                 
-                                st.success("✅ Answer found!")
+                                st.success(" ✨ Insight Unlocked!")
                                 st.markdown(f"**🧠 Answer:** {answer}")
                                 st.markdown(f"**📄 Source:** {source}")
                                 
@@ -856,7 +856,7 @@ def enhanced_question_interface():
             pass
 
     if st.session_state.get("last_answer"):
-        st.success("Answer found!")
+        st.success("✨ Insight Unlocked!")
         st.markdown(f"**Answer:** {st.session_state.last_answer}")
         st.markdown(f"**Source:** {st.session_state.last_source}")
 
