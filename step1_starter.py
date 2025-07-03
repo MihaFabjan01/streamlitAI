@@ -303,12 +303,14 @@ st.markdown(
         background-size: cover;
         background-position: center;
         border-radius: 10px;
+        color: white;
     }
 
     .stExpander {
         background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("https://www.chromethemer.com/wallpapers/chromebook-wallpapers/images/960/galaxy-chromebook-wallpaper.jpg") !important;
         background-size: cover !important;
         border-radius: 10px !important;
+        color: white !important;
     }
 
     .styled-expander .stExpander {
