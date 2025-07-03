@@ -838,7 +838,7 @@ def enhanced_question_interface():
     col1, col2 = st.columns([1, 1])
     
     with col1:
-        if st.button("✨ Get Answer", type="primary"):
+        if st.button("🌟 Reveal the Wonders!", type="primary"):
             if question:
                 with st.spinner("Launching satellites, scanning DNA strands, and decoding nature's secrets..."):
                     answer, source = get_answer_with_source(st.session_state.collection, question)
