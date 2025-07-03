@@ -842,17 +842,23 @@ def enhanced_question_interface():
             if question:
                 with st.spinner("Finding answer..."):
                     answer, source = get_answer_with_source(st.session_state.collection, question)
-                    st.success("Answer found!")
-                    st.markdown(f"**Answer:** {answer}")
-                    st.markdown(f"**Source:** {source}")
+                    st.session_state.last_answer = answer
+                    st.session_state.last_source = source
                     add_to_search_history(question, answer, source)
             else:
                 st.warning("Please enter a question.")
     
     with col2:
         if st.button("Clear"):
+            st.session_state.last_answer = ""
+            st.session_state.last_source = ""
             # This could clear the question or results, for now it does nothing
             pass
+
+    if st.session_state.get("last_answer"):
+        st.success("Answer found!")
+        st.markdown(f"**Answer:** {st.session_state.last_answer}")
+        st.markdown(f"**Source:** {st.session_state.last_source}")
 
 # App health check
 def check_app_health():
@@ -922,6 +928,10 @@ def enhanced_main():
         st.session_state.stored_documents = []
     if "client" not in st.session_state:
         st.session_state.client = chromadb.Client()
+    if "last_answer" not in st.session_state:
+        st.session_state.last_answer = ""
+    if "last_source" not in st.session_state:
+        st.session_state.last_source = ""
 
     # Health check (optional - show only if there are issues)
     health_issues = check_app_health()
