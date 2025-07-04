@@ -120,7 +120,7 @@ Instructions: Answer ONLY using the information provided above. If the answer is
 Answer:"""
     
     # STEP 6: Generate answer with anti-hallucination parameters
-    ai_model = pipeline("text2text-generation", model="google/flan-t5-small")
+    ai_model = pipeline("text2text-generation", model="google/flan-t5-large")
     response = ai_model(
         prompt, 
         max_length=150
